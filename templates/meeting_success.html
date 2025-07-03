@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zoom Meeting Created</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Toggle Light/Dark Theme -->
+  <style>
+    :root {
+      --bg-dark: #121212;
+      --bg-light: #f8f9fa;
+      --card-dark: #1e1e1e;
+      --card-light: #ffffff;
+      --text-dark: #eaeaea;
+      --text-light: #212529;
+    }
+
+    body[data-theme='dark'] {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    body[data-theme='light'] {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    body[data-theme='dark'] .card {
+      background-color: var(--card-dark);
+      color: var(--text-dark);
+    }
+
+    body[data-theme='light'] .card {
+      background-color: var(--card-light);
+      color: var(--text-light);
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 1rem !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center vh-100 flex-column" data-theme="light">
+  <button class="btn btn-outline-secondary theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <div class="container px-3">
+    <div class="card p-4">
+      <h2>🎉 Zoom Meeting Created Successfully!</h2>
+      <p><span>📅 <strong>Topic:</strong></span> {{ meeting.topic }}</p>
+      <p><span>⏰ <strong>Start Time:</strong></span> {{ meeting.start_time }}</p>
+      <p><span>🔗 <strong>Join URL:</strong></span>
+        <a href="{{ meeting.join_url }}" class="link-primary" target="_blank">{{ meeting.join_url }}</a>
+      </p>
+      <a href="{{ meeting.join_url }}" target="_blank" class="btn btn-primary w-100 mt-3">Join Meeting</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+</body>
+</html>
+
