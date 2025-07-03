@@ -19,6 +19,6 @@ docker run -p 5000:5000 \
   ghcr.io/imvickykumar999/zoom-flask-app:latest
 ```
 
-![image](https://github.com/user-attachments/assets/7616b2f2-3b06-430e-b138-775e312735cb)
+![image](https://github.com/user-attachments/assets/9c366026-c16a-42eb-afd2-a11f2df84987)
 ![image](https://github.com/user-attachments/assets/b55c7773-bbc3-4762-90b8-eb7f03925f5d)
 ![image](https://github.com/user-attachments/assets/acd1d7e0-36fa-4e9f-b6b7-933eadfc4b6d)
