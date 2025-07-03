@@ -3,6 +3,7 @@ from requests_oauthlib import OAuth2Session
 import webbrowser
 import os
 import json
+import certifi
 
 # Allow HTTP for local dev
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -31,7 +32,8 @@ redirect_response = input('\nPaste the full redirect URL here after authorizatio
 token = zoom.fetch_token(
     token_url,
     authorization_response=redirect_response,
-    client_secret=client_secret
+    client_secret=client_secret,
+    # verify=certifi.where()
 )
 
 print("\n✅ Access token fetched successfully!")
